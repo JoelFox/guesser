@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { getAllGuesses, deleteGuess, editGuess } from "./api";
 import { GuessList, GuessForm, NewGuessForm } from "./components";
@@ -15,30 +14,28 @@ function App() {
 
   function handleRemove(e, id) {
     e.preventDefault();
-    deleteGuess(id).then(res => res)
-    const newGuessesArray = guesses.filter(guess => guess.ref.id !== id)
-    setGuesses(newGuessesArray)
-    toast.success('Removed successfully')
+    deleteGuess(id).then((res) => res);
+    const newGuessesArray = guesses.filter((guess) => guess.ref.id !== id);
+    setGuesses(newGuessesArray);
+    toast.success("Removed successfully");
   }
 
   function handleEdit(e, id, newText) {
     e.preventDefault();
-    editGuess(id, newText).then(res => res)
+    editGuess(id, newText).then((res) => res);
   }
 
   return (
     <div className="App">
-      <header className="App-container">
-        <div className="notes-container">
-          {/* <GuessForm guesses={guesses} setGuesses={setGuesses} /> */}
-          <NewGuessForm guesses={guesses} setGuesses={setGuesses}/>
-          <GuessList 
+      <div className="App-container">
+        <GuessForm guesses={guesses} setGuesses={setGuesses} />
+        {/* <NewGuessForm guesses={guesses} setGuesses={setGuesses}/> */}
+        {/* <GuessList 
             onEdit={handleEdit} 
             onRemove={handleRemove} 
             data={guesses}
-          />
-        </div>
-      </header>
+          /> */}
+      </div>
     </div>
   );
 }

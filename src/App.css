@@ -12,6 +12,7 @@
 }
 
 .App-container {
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -20,7 +21,7 @@
   align-items: center;
 }
 
-.note-row p {
+/* .note-row p {
   margin: 0 34px 0 0;
   padding: 0;
   outline: none;
@@ -49,4 +50,4 @@
   justify-content: flex-start;
   align-items: center;
   text-align: left;
-}
+} */

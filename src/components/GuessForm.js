@@ -1,45 +1,111 @@
-import React from 'react'
-import { Form, Button, Input } from 'antd';
-import { createGuess } from '../api'
-import { toast } from 'react-toastify';
+import { Form, Input, Button, Select } from 'antd';
+const { Option } = Select;
+const layout = {
+  labelCol: {
+    span: 8,
+  },
+  wrapperCol: {
+    span: 16,
+  },
+};
+const tailLayout = {
+  wrapperCol: {
+    offset: 8,
+    span: 16,
+  },
+};
 
-const GuessForm = ({ form, guesses, setGuesses }) => {
+const Demo = ({guesses, setGuesses}) => {
+  const [form] = Form.useForm();
+
+  const onGenderChange = (value) => {
+    switch (value) {
+      case 'male':
+        form.setFieldsValue({
+          note: 'Hi, man!',
+        });
+        return;
+
+      case 'female':
+        form.setFieldsValue({
+          note: 'Hi, lady!',
+        });
+        return;
+
+      default:
+        return;
+    }
+  };
 
   const onFinish = (values) => {
-    createGuess(values.guess).then(res => {
-      const newGuessesArray = guesses.concat([res])
-      setGuesses(newGuessesArray)
-      toast.success('Added Successfully')
-    })
-    console.log('Success:', values);
+    console.log(values);
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+  const onReset = () => {
+    form.resetFields();
   };
-  
+
+
   return (
-    <Form
-      name="guess_form"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item label="Kön" name="gender" rules={([{ required: true, message: "Du måste välja ett kön!"}])}>
+    <Form {...layout} form={form} name="guess-form" onFinish={onFinish}>
+      {/* <Form.Item
+        name="note"
+        label="Note"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
         <Input />
+      </Form.Item> */}
+      <Form.Item
+        name="gender"
+        label="Kön"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Select
+          placeholder="Välj ett kön"
+          onChange={onGenderChange}
+          allowClear
+        >
+          <Option value="male">Man</Option>
+          <Option value="female">Kvinna</Option>
+        </Select>
       </Form.Item>
-
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+      <Form.Item
+        noStyle
+        shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
+      >
+        {({ getFieldValue }) =>
+          getFieldValue('gender') === 'other' ? (
+            <Form.Item
+              name="customizeGender"
+              label="Customize Gender"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          ) : null
+        }
+      </Form.Item>
+      <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
-          Skicka in
+          Submit
+        </Button>
+        <Button htmlType="button" onClick={onReset}>
+          Reset
         </Button>
       </Form.Item>
     </Form>
-  )
-}
-
-
-export default GuessForm;
+  );
+};
+export default Demo;

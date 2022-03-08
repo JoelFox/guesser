@@ -36,7 +36,7 @@ const Demo = ({ guesses, setGuesses }) => {
         });
         return;
       default:
-          return;
+        return;
     }
   };
 
@@ -53,12 +53,12 @@ const Demo = ({ guesses, setGuesses }) => {
     form.resetFields();
   };
 
-//   const onFill = () => {
-//     form.setFieldsValue({
-//       note: "Hello world!",
-//       gender: "male",
-//     });
-//   };
+  //   const onFill = () => {
+  //     form.setFieldsValue({
+  //       note: "Hello world!",
+  //       gender: "male",
+  //     });
+  //   };
 
   return (
     <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
@@ -87,28 +87,7 @@ const Demo = ({ guesses, setGuesses }) => {
           <Option value="male">Man</Option>
         </Select>
       </Form.Item>
-      {/* <Form.Item
-        name="weight"
-        label="Vikt"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item> */}
-      {/* <Form.Item
-        name="length"
-        label="Längd"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item> */}
+
       <Form.Item
         noStyle
         shouldUpdate={(prevValues, currentValues) =>
