@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { getAllGuesses, deleteGuess, editGuess } from "./api";
-import { GuessList, GuessForm, NewGuessForm } from "./components";
-import { toast } from "react-toastify";
+import { getAllGuesses } from "./api";
+import { GuessForm } from "./components";
+// import { toast } from "react-toastify";
 
 function App() {
   const [guesses, setGuesses] = useState([]);
@@ -12,18 +12,18 @@ function App() {
     getAllGuesses.then((res) => setGuesses(res));
   }, []);
 
-  function handleRemove(e, id) {
-    e.preventDefault();
-    deleteGuess(id).then((res) => res);
-    const newGuessesArray = guesses.filter((guess) => guess.ref.id !== id);
-    setGuesses(newGuessesArray);
-    toast.success("Removed successfully");
-  }
+  // function handleRemove(e, id) {
+  //   e.preventDefault();
+  //   deleteGuess(id).then((res) => res);
+  //   const newGuessesArray = guesses.filter((guess) => guess.ref.id !== id);
+  //   setGuesses(newGuessesArray);
+  //   toast.success("Removed successfully");
+  // }
 
-  function handleEdit(e, id, newText) {
-    e.preventDefault();
-    editGuess(id, newText).then((res) => res);
-  }
+  // function handleEdit(e, id, newText) {
+  //   e.preventDefault();
+  //   editGuess(id, newText).then((res) => res);
+  // }
 
   return (
     <div className="App">
