@@ -3,9 +3,8 @@ import "./App.css";
 import { getAllGuesses } from "./api";
 import { GuessForm } from "./components";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { toast } from "react-toastify";
 
 function App() {
   const [guesses, setGuesses] = useState([]);

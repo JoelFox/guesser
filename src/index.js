@@ -5,7 +5,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "antd/dist/antd.css";
 import { ConfigProvider } from "antd";
-import moment from 'moment';
 import 'moment/locale/sv';
 import locale from 'antd/lib/locale/sv_SE';
 
