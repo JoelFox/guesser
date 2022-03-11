@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { getAllGuesses } from "./api";
 import { GuessForm } from "./components";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import { toast } from "react-toastify";
 
 function App() {
@@ -27,6 +30,7 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer />
       <div className="App-container">
         <GuessForm guesses={guesses} setGuesses={setGuesses} />
         {/* <NewGuessForm guesses={guesses} setGuesses={setGuesses}/> */}

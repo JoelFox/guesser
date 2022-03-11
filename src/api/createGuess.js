@@ -1,11 +1,11 @@
 import { client, q } from "../config/db";
 
-const createGuess = (text) =>
+const createGuess = (guess) =>
   client
     .query(
       q.Create(q.Collection("guesses"), {
         data: {
-          text,
+          guess
         },
       })
     )

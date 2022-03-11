@@ -1,4 +1,9 @@
-import { Form, Input, Button, Select } from 'antd';
+import { Form, Input, InputNumber, Button, Select, DatePicker } from "antd";
+import { createGuess } from "../api";
+import { toast } from "react-toastify";
+import moment from "moment";
+
+
 const { Option } = Select;
 const layout = {
   labelCol: {
@@ -15,36 +20,26 @@ const tailLayout = {
   },
 };
 
-const Demo = ({guesses, setGuesses}) => {
+const Demo = ({ guesses, setGuesses }) => {
   const [form] = Form.useForm();
 
   const onGenderChange = (value) => {
-    switch (value) {
-      case 'male':
-        form.setFieldsValue({
-          note: 'Hi, man!',
-        });
-        return;
-
-      case 'female':
-        form.setFieldsValue({
-          note: 'Hi, lady!',
-        });
-        return;
-
-      default:
-        return;
-    }
+    console.log(value);
   };
 
   const onFinish = (values) => {
+    values.date = values.date.toString();
     console.log(values);
+    createGuess(values).then((res) => {
+      const newGuessesArray = guesses.concat([res]);
+      setGuesses(newGuessesArray);
+      toast.success("Din gissning har sparats!");
+    });
   };
 
   const onReset = () => {
     form.resetFields();
   };
-
 
   return (
     <Form {...layout} form={form} name="guess-form" onFinish={onFinish}>
@@ -65,44 +60,54 @@ const Demo = ({guesses, setGuesses}) => {
         rules={[
           {
             required: true,
+            message: "Du måste välja ett kön",
           },
         ]}
       >
         <Select
-          placeholder="Välj ett kön"
+          placeholder="Vad blir det?"
           onChange={onGenderChange}
           allowClear
         >
-          <Option value="male">Man</Option>
-          <Option value="female">Kvinna</Option>
+          <Option value="pojke">Pojke</Option>
+          <Option value="flicka">Flicka</Option>
         </Select>
       </Form.Item>
       <Form.Item
-        noStyle
-        shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
+        name="height"
+        label="Längd"
+        rules={[
+          {
+            required: true,
+            message: "Du måste välja en längd",
+          },
+        ]}
       >
-        {({ getFieldValue }) =>
-          getFieldValue('gender') === 'other' ? (
-            <Form.Item
-              name="customizeGender"
-              label="Customize Gender"
-              rules={[
-                {
-                  required: true,
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-          ) : null
-        }
+        <InputNumber />
       </Form.Item>
+      <Form.Item
+        name="weight"
+        label="Vikt"
+        rules={[
+          {
+            required: true,
+            message: "Du måste välja en vikt",
+          },
+        ]}
+      >
+        <InputNumber />
+      </Form.Item>
+
+      <Form.Item name="date" label="Datum" rules={[{required: true, message: "Du måste välja ett datum!"}]}>
+        <DatePicker placeholder="Välj ett datum" defaultValue={moment('2022-08-19')}/>
+      </Form.Item>
+
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
-          Submit
+          Skicka in
         </Button>
         <Button htmlType="button" onClick={onReset}>
-          Reset
+          Nollställ
         </Button>
       </Form.Item>
     </Form>
