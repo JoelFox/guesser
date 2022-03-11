@@ -22,6 +22,35 @@
   align-items: center;
 }
 
+.FullWidth {
+  width: 100%;
+}
+
+.Hero {
+  background-color: darkcyan;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  
+  /* You need to define an explicit height! */
+  height: 25vh;
+  /* height: 250px;
+  flex: 1;
+  align-items: center;
+  align-content: center;
+  justify-content: center; */
+}
+
+.Hero h1 {
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 60px;
+}
 /* .note-row p {
   margin: 0 34px 0 0;
   padding: 0;

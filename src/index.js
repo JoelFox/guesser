@@ -7,10 +7,13 @@ import "antd/dist/antd.css";
 import { ConfigProvider } from "antd";
 import 'moment/locale/sv';
 import locale from 'antd/lib/locale/sv_SE';
+import Hero from "./components/hero";
 
 ReactDOM.render(
   <React.StrictMode>
     <ConfigProvider locale={locale}>
+    <Hero />
+
       <App />
     </ConfigProvider>
   </React.StrictMode>,

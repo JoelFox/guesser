@@ -42,7 +42,7 @@ const Demo = ({ guesses, setGuesses }) => {
   };
 
   return (
-    <Form {...layout} form={form} name="guess-form" onFinish={onFinish}>
+    <Form {...layout} form={form} name="guess-form" onFinish={onFinish} className="FullWidth">
       <Form.Item
         name="guessName"
         label="Ditt för- och efternamn"

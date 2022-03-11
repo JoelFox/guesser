@@ -5,6 +5,7 @@ import { GuessForm } from "./components";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Hero from "./components/hero";
 
 function App() {
   const [guesses, setGuesses] = useState([]);
