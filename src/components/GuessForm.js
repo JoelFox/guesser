@@ -43,9 +43,9 @@ const Demo = ({ guesses, setGuesses }) => {
 
   return (
     <Form {...layout} form={form} name="guess-form" onFinish={onFinish}>
-      {/* <Form.Item
-        name="note"
-        label="Note"
+      <Form.Item
+        name="guessName"
+        label="Ditt för- och efternamn"
         rules={[
           {
             required: true,
@@ -53,7 +53,7 @@ const Demo = ({ guesses, setGuesses }) => {
         ]}
       >
         <Input />
-      </Form.Item> */}
+      </Form.Item>
       <Form.Item
         name="gender"
         label="Kön"
