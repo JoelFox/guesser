@@ -110,7 +110,29 @@ const Demo = ({ guesses, setGuesses }) => {
         label="Välkomsthälsning/livsråd till knodden"
         rules={[
           {
-            required: true,
+            required: false,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        name="nameSuggestions"
+        label="Namnförslag"
+        rules={[
+          {
+            required: false,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        name="otherGuess"
+        label="Övrig gissning"
+        rules={[
+          {
+            required: false,
           },
         ]}
       >
