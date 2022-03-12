@@ -12,12 +12,12 @@ const layout = {
     span: 16,
   },
 };
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
+// const tailLayout = {
+//   wrapperCol: {
+//     offset: 8,
+//     span: 16,
+//   },
+// };
 
 const Demo = ({ guesses, setGuesses }) => {
   const [form] = Form.useForm();
