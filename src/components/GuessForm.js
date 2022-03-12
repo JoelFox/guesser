@@ -1,4 +1,4 @@
-import { Form, Input, InputNumber, Button, Select, DatePicker } from "antd";
+import { Form, Input, InputNumber, Button, Select, DatePicker, TimePicker } from "antd";
 import { createGuess } from "../api";
 import { toast } from "react-toastify";
 import moment from "moment";
@@ -99,9 +99,23 @@ const Demo = ({ guesses, setGuesses }) => {
       </Form.Item>
 
       <Form.Item name="date" label="Datum" rules={[{required: true, message: "Du måste välja ett datum!"}]}>
-        <DatePicker placeholder="Välj ett datum" defaultValue={moment('2022-08-19')}/>
+        <DatePicker placeholder="Välj ett datum"/>
+      </Form.Item>
+      <Form.Item name="time" label="Klockslag" rules={[{required: true, message: "Du måste välja ett klockslag!"}]}>
+        <TimePicker placeholder="Välj ett klockslag" format={"HH:mm"}/>
       </Form.Item>
 
+      <Form.Item
+        name="welcomeMessage"
+        label="Välkomsthälsning/livsråd till knodden"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
           Skicka in
