@@ -137,7 +137,7 @@ const Demo = ({ guesses, setGuesses }) => {
       >
         <Input />
       </Form.Item>
-      <Form.Item {...tailLayout}>
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           Skicka in
         </Button>
