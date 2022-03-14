@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { getAllGuesses } from "./api";
-import { GuessForm } from "./components";
-
+import { GuessForm, InfoBox } from "./components";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -31,6 +30,7 @@ function App() {
     <div className="App">
       <ToastContainer />
       <div className="App-container">
+        <InfoBox />
         <GuessForm guesses={guesses} setGuesses={setGuesses} />
         {/* <NewGuessForm guesses={guesses} setGuesses={setGuesses}/> */}
         {/* <GuessList 

@@ -74,7 +74,7 @@ const Demo = ({ guesses, setGuesses }) => {
       </Form.Item>
       <Form.Item
         name="height"
-        label="Längd"
+        label="Längd (cm)"
         rules={[
           {
             required: true,
@@ -86,7 +86,7 @@ const Demo = ({ guesses, setGuesses }) => {
       </Form.Item>
       <Form.Item
         name="weight"
-        label="Vikt"
+        label="Vikt (g)"
         rules={[
           {
             required: true,
