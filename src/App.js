@@ -9,7 +9,7 @@ function App() {
   const [guesses, setGuesses] = useState([]);
 
   useEffect(() => {
-    console.log(process.env.REACT_APP_FAUNADB_KEY);
+    // console.log(process.env.REACT_APP_FAUNADB_KEY);
     getAllGuesses.then((res) => setGuesses(res));
   }, []);
 

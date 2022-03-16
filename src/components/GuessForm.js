@@ -28,6 +28,7 @@ const Demo = ({ guesses, setGuesses }) => {
 
   const onFinish = (values) => {
     values.date = values.date.toString();
+    values.time = values.time.toString();
     console.log(values);
     createGuess(values).then((res) => {
       const newGuessesArray = guesses.concat([res]);
