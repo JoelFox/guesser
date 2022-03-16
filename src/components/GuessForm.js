@@ -27,8 +27,9 @@ const Demo = ({ guesses, setGuesses }) => {
   };
 
   const onFinish = (values) => {
-    values.date = values.date.toString();
-    values.time = values.time.toString();
+    values.date = values.date.format('YYYY-MM-DD')
+    // values.date = values.date.toString();
+
     console.log(values);
     createGuess(values).then((res) => {
       const newGuessesArray = guesses.concat([res]);
@@ -101,10 +102,18 @@ const Demo = ({ guesses, setGuesses }) => {
       <Form.Item name="date" label="Datum" rules={[{required: true, message: "Du måste välja ett datum!"}]}>
         <DatePicker placeholder="Välj ett datum"/>
       </Form.Item>
-      <Form.Item name="time" label="Klockslag" rules={[{required: true, message: "Du måste välja ett klockslag!"}]}>
-        <TimePicker placeholder="Välj ett klockslag" format={"HH:mm"}/>
+      <Form.Item
+        name="time"
+        label="Klockslag (HH:MM)"
+        rules={[
+          {
+            required: true,
+            message: "Du måste välja ett klockslag!"
+          },
+        ]}
+      >
+        <Input />
       </Form.Item>
-
       <Form.Item
         name="welcomeMessage"
         label="Välkomsthälsning/livsråd till knodden"
