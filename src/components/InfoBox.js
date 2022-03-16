@@ -1,23 +1,23 @@
 const InfoBox = () => {
   return (
     <div className="InfoBox">
-      <div>
+      <div className="Header">
         <h2>Info</h2>
       </div>
       <div className="ColFlex">
         <div>
           <h3>Johanna</h3>
-          <ul>
-            <li>4130 gra</li>
-            <li>55 cm</li>
-          </ul>
+          <p>
+            4130 gram <br />
+            55 cm
+          </p>
         </div>
         <div>
           <h3>Joel</h3>
-          <ul>
-            <li>2960 gram</li>
-            <li>49 cm</li>
-          </ul>
+          <p>
+            2960 gram <br />
+            49 cm
+          </p>
         </div>
       </div>
     </div>

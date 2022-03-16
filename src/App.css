@@ -1,11 +1,11 @@
 /* @import '~antd/dist/antd.css'; */
-@import 'antd/dist/antd.min.css';
+@import "antd/dist/antd.min.css";
 
 .App {
   text-align: center;
   min-height: 100vh;
   display: flex;
-  margin: 75px 0 25px;
+  margin: 0 0 25px;
   flex-direction: flex-start;
   align-items: flex-start;
   justify-content: center;
@@ -36,7 +36,7 @@
   justify-content: center;
   text-align: center;
   width: 100%;
-  
+
   /* You need to define an explicit height! */
   height: 25vh;
 }
@@ -55,10 +55,23 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  flex-wrap: wrap;
+}
+.InfoBox .Header {
+  width: 100%;
 }
 
 .ColFlex {
-  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.ColFlex div {
+  flex: 1;
+}
+
+ul {
+  list-style-type: none;
 }
 /* .note-row p {
   margin: 0 34px 0 0;
