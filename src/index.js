@@ -5,16 +5,22 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "antd/dist/antd.css";
 import { ConfigProvider } from "antd";
-import 'moment/locale/sv';
-import locale from 'antd/lib/locale/sv_SE';
-import Hero from "./components/hero";
+import "moment/locale/sv";
+import locale from "antd/lib/locale/sv_SE";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { GuessForm, Thanks } from "./components";
 
 ReactDOM.render(
   <React.StrictMode>
     <ConfigProvider locale={locale}>
-    <Hero />
-
-      <App />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="/" element={<GuessForm />} />
+            <Route path="thanks" element={<Thanks />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </ConfigProvider>
   </React.StrictMode>,
   document.getElementById("root")

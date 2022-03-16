@@ -9,6 +9,7 @@ import {
 import { createGuess } from "../api";
 import { toast } from "react-toastify";
 import { InfoBox } from ".";
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 const layout = {
@@ -28,6 +29,7 @@ const layout = {
 
 const Demo = ({ guesses, setGuesses }) => {
   const [form] = Form.useForm();
+  let navigate = useNavigate();
 
   const onGenderChange = (value) => {
     console.log(value);
@@ -39,9 +41,10 @@ const Demo = ({ guesses, setGuesses }) => {
 
     console.log(values);
     createGuess(values).then((res) => {
-      const newGuessesArray = guesses.concat([res]);
-      setGuesses(newGuessesArray);
+      // const newGuessesArray = guesses.concat([res]);
+      // setGuesses(newGuessesArray);
       toast.success("Din gissning har sparats!");
+      navigate("/thanks", { state: values.guesserName });
     });
   };
 
@@ -60,7 +63,7 @@ const Demo = ({ guesses, setGuesses }) => {
         className="FullWidth"
       >
         <Form.Item
-          name="guessName"
+          name="guesserName"
           label="Ditt för- och efternamn"
           rules={[
             {
@@ -72,7 +75,7 @@ const Demo = ({ guesses, setGuesses }) => {
         </Form.Item>
         <Form.Item
           name="gender"
-          label="Kön"
+          label="Flicka eller pojke?"
           rules={[
             {
               required: true,

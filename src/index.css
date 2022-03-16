@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: darkseagreen;
 }
 
 code {
@@ -13,4 +15,5 @@ code {
 }
 .App {
   padding: 20px;
+  background-color:aliceblue;
 }
