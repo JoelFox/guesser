@@ -16,6 +16,7 @@ const GuessList = () => {
       <h2>Gissningar</h2>
       <button onClick={clickButton} >Hämta gissningar</button>
 
+      {guesses && "Hej"}
       {/* {guesses && guesses.map(x =>
         <div>
           Text
