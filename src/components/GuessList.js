@@ -8,6 +8,7 @@ const GuessList = () => {
 
   const clickButton = () => {
     const data = getAllGuesses();
+    console.log(data);
     setGuesses(data);
   }
 
