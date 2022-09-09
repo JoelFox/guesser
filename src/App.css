@@ -29,6 +29,10 @@
   flex: 1;
 }
 
+.Table {
+  font-size: small;
+}
+
 .Hero {
   background-color: darkcyan;
   color: #fff;

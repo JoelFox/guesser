@@ -43,19 +43,21 @@ const GuessList = () => {
     <div>
       <h2>Gissningar</h2>
       <button onClick={clickButton}>Hämta gissningar</button>
+      <table className='Table'>
+        {guesses && guesses.map(x =>
+          <tr>
+            <td>{x.guesserName}</td>
+            <td>{x.date}</td>
+            <td>{x.time}</td>
+            <td>{x.gender}</td>
+            <td>{x.height}</td>
+            <td>{x.weight}</td>
+            <td>{x.nameSuggestions}</td>
+            <td>{x.welcomeMessage}</td>
+          </tr>
+        )}
+      </table>
 
-      {guesses && guesses.map(x =>
-        <div>
-          <div className='inline-block'>{x.guesserName}</div>
-          <div className='inline-block'>{x.date}</div>
-          <div className='inline-block'>{x.time}</div>
-          <div className='inline-block'>{x.gender}</div>
-          <div className='inline-block'>{x.height}</div>
-          <div className='inline-block'>{x.weight}</div>
-          <div className='inline-block'>{x.nameSuggestions}</div>
-          <div className='inline-block'>{x.welcomeMessage}</div>
-        </div>
-      )}
     </div>
   )
 }
