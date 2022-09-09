@@ -8,7 +8,7 @@ import { ConfigProvider } from "antd";
 import "moment/locale/sv";
 import locale from "antd/lib/locale/sv_SE";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { GuessForm, Thanks } from "./components";
+import { GuessForm, GuessList, Thanks } from "./components";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +17,7 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="/" element={<GuessForm />} />
+            <Route path="guesses" element={<GuessList />} />
             <Route path="thanks" element={<Thanks />} />
           </Route>
         </Routes>

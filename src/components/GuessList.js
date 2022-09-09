@@ -1,23 +1,27 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react';
+import { getAllGuesses } from "../api";
 // import { Icon } from 'antd'
 
-const GuessList = memo(({data, onRemove, onEdit}) => (
-  <>
-    {/* {data && data.map(guess => (
-      <div key={guess.ref.id} className="note-row">
-        <p 
-          contentEditable
-          suppressContentEditableWarning
-          onChange={e => onEdit(e, guess.ref.id, e.currentTarget.textContent)}
-          onBlur={e => onEdit(e, guess.ref.id, e.currentTarget.textContent)}
-          onInput={e => onEdit(e, guess.ref.id, e.currentTarget.textContent)}
-          >
-            {guess.data.text}
-        </p>
+const GuessList = () => {
 
-      </div>
-    ))} */}
-  </>
-))
+  const [guesses, setGuesses] = useState(null);
+
+  const clickButton = () => {
+    const g = getAllGuesses();
+    setGuesses(g);
+  }
+
+  return (
+    <div>
+      <h2>Gissningar</h2>
+      <button onClick={clickButton} >Hämta gissningar</button>
+      {/* {guesses && guesses.map(x =>
+        <div>
+          Text
+        </div>
+      )} */}
+    </div>
+  )
+}
 
 export default GuessList;
