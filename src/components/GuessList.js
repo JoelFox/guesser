@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import { getAllGuesses } from "../api";
 // import { Icon } from 'antd'
 
@@ -15,6 +15,7 @@ const GuessList = () => {
     <div>
       <h2>Gissningar</h2>
       <button onClick={clickButton} >Hämta gissningar</button>
+      {guesses}
       {/* {guesses && guesses.map(x =>
         <div>
           Text
