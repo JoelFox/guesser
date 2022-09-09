@@ -53,7 +53,7 @@ const GuessList = () => {
             <th>Längd</th>
             <th>Vikt</th>
             <th>Namnförslag</th>
-            <th>Välkomstmeddelande</th>
+            <th className='table-description'>Välkomstmeddelande</th>
           </tr>
         </thead>
         <tbody>
@@ -66,7 +66,7 @@ const GuessList = () => {
               <td>{x.height}</td>
               <td>{x.weight}</td>
               <td>{x.nameSuggestions}</td>
-              <td>{x.welcomeMessage}</td>
+              <td className='table-description'>{x.welcomeMessage}</td>
             </tr>
           )}
         </tbody>

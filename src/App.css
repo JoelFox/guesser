@@ -40,6 +40,10 @@ td, th {
   padding: 2px;
 }
 
+.table-description {
+  max-width: 350px;
+}
+
 .Hero {
   background-color: darkcyan;
   color: #fff;
