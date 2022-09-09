@@ -15,7 +15,6 @@ const getAllNotes = () => {
   return client
     .query(q.Paginate(q.Match(q.Ref("indexes/all_guesses"))))
     .then((response) => {
-      console.log(response);
       const guessesRefs = response.data;
       // create new query out of notes refs.
       // https://docs.fauna.com/fauna/current/api/fql/
@@ -26,7 +25,6 @@ const getAllNotes = () => {
       return client.query(getAllGuessesQuery).then((data) => data);
     })
     .then((ret) => {
-      console.log(ret);
       return ret.map(x => x.data.guess);
     })
     .catch((error) => console.warn("error", error.message));

@@ -7,8 +7,10 @@ const GuessList = () => {
   const [guesses, setGuesses] = useState([]);
 
   const clickButton = () => {
-    const data = getAllGuesses().then(x => setGuesses(x));
-    console.log(data);
+    const data = getAllGuesses().then(x => {
+      setGuesses(x);
+      console.log(x);
+    });
   }
   /*
   date
