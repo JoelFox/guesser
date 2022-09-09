@@ -47,7 +47,7 @@ const GuessList = () => {
         <thead>
           <tr>
             <th>Gissare</th>
-            <th>Datum</th>
+            <th className='table-date'>Datum</th>
             <th>Tidpunkt</th>
             <th>Kön</th>
             <th>Längd</th>
@@ -60,7 +60,7 @@ const GuessList = () => {
           {guesses && guesses.map(x =>
             <tr>
               <td>{x.guesserName}</td>
-              <td>{x.date}</td>
+              <td className='table-date'>{x.date}</td>
               <td>{x.time}</td>
               <td>{x.gender}</td>
               <td>{x.height}</td>

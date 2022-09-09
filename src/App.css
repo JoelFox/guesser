@@ -43,6 +43,9 @@ td, th {
 .table-description {
   max-width: 350px;
 }
+.table-date {
+  min-width: 80px;
+}
 
 .Hero {
   background-color: darkcyan;
