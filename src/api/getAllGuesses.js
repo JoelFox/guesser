@@ -12,7 +12,7 @@ const getAllNotes = () => {
   //   )
   // )
 
-  client
+  return client
     .query(q.Paginate(q.Match(q.Ref("indexes/all_guesses"))))
     .then((response) => {
       console.log(response);
