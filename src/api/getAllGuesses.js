@@ -27,7 +27,7 @@ const getAllNotes = () => {
     })
     .then((ret) => {
       console.log(ret);
-      return ret;
+      return ret.map(x => x.data.guess);
     })
     .catch((error) => console.warn("error", error.message));
 }
