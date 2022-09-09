@@ -25,6 +25,10 @@ const getAllNotes = () => {
       // query the refs
       return client.query(getAllGuessesQuery).then((data) => data);
     })
+    .then((ret) => {
+      console.log(ret);
+      return ret;
+    })
     .catch((error) => console.warn("error", error.message));
 }
 export default getAllNotes;
