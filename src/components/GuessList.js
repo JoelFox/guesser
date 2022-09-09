@@ -4,24 +4,22 @@ import { getAllGuesses } from "../api";
 
 const GuessList = () => {
 
-  const [guesses, setGuesses] = useState(null);
+  const [guesses, setGuesses] = useState([]);
 
   const clickButton = () => {
-    const g = getAllGuesses();
-    setGuesses(g);
+    getAllGuesses().then(data => setGuesses(data));
   }
 
   return (
     <div>
       <h2>Gissningar</h2>
-      <button onClick={clickButton} >Hämta gissningar</button>
+      <button onClick={clickButton}>Hämta gissningar</button>
 
-      {guesses && "Hej"}
-      {/* {guesses && guesses.map(x =>
+      {guesses && guesses.map(x =>
         <div>
           Text
         </div>
-      )} */}
+      )}
     </div>
   )
 }
