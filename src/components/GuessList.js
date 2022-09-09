@@ -11,6 +11,7 @@ const GuessList = () => {
       setGuesses(x);
       console.log(x);
     });
+    console.log(data);
   }
   /*
   date
