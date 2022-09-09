@@ -5,12 +5,12 @@ const getAllNotes = () => {
 
   console.log(client);
 
-  let allDocuments = client.query(
-    q.Map(
-      q.Paginate(q.Documents(q.Collection("guesses"))),
-      q.Lambda("X", q.Get(q.Var("X")))
-    )
-  )
+  // let allDocuments = client.query(
+  //   q.Map(
+  //     q.Paginate(q.Documents(q.Collection("guesses"))),
+  //     q.Lambda("X", q.Get(q.Var("X")))
+  //   )
+  // )
 
   client
     .query(q.Paginate(q.Match(q.Ref("indexes/all_guesses"))))
